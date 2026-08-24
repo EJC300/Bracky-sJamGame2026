@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 namespace Gameplay
 {
@@ -7,28 +8,31 @@ namespace Gameplay
         [SerializeField] float traversalSpeed;
         [SerializeField] Transform[] waypoints;
         private Transform targetWaypoint;
-        private int currentWaypointIndex = 0;
+        public int currentWaypointIndex = 0;
         private float minDistanceToTarget = 0.5f;
         private Vector3 cameraVelocity;
-        private bool canLock;
+        public bool canLock;
         void TraverseWaypoints()
         {
-            canLock = currentWaypointIndex == waypoints.Length - 1;
+            canLock = Vector3.Distance(transform.position, waypoints[waypoints.Length-1].position) < 0.01f;
             targetWaypoint = waypoints[currentWaypointIndex];
             float distanceToTarget = Vector3.Distance(transform.position, targetWaypoint.position);
 
-            if (canLock)
+            if (distanceToTarget < minDistanceToTarget)
             {
+                if (currentWaypointIndex < waypoints.Length - 1)
+                 {
 
-                if (distanceToTarget < minDistanceToTarget && currentWaypointIndex < waypoints.Length - 1)
-                {
+               
                     currentWaypointIndex = currentWaypointIndex + 1;
-                }
+                 }
+                
 
-
-
-                MoveToWaypoint();
             }
+
+            Debug.Log(waypoints.Length);
+                MoveToWaypoint();
+            
         }
 
         void EndIntro()
@@ -36,7 +40,7 @@ namespace Gameplay
        
             if (canLock)
             {
-                //Lock To laptop main game loop start
+                GameController.instance.SwitchGameState(GameController.GameState.StartGame);
             }
         }
         void MoveToWaypoint()
