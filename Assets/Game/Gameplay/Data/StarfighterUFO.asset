@@ -15,5 +15,5 @@ MonoBehaviour:
   clipName: 
   ufoRecord: {fileID: 0}
   forged: 0
-  anomaly: 0
+  anomaly: 1
   aircraft: 0

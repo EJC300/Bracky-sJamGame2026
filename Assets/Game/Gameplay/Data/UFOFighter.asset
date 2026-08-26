@@ -16,4 +16,4 @@ MonoBehaviour:
   ufoRecord: {fileID: 0}
   forged: 0
   anomaly: 0
-  aircraft: 0
+  aircraft: 1
