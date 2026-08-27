@@ -7,7 +7,7 @@ namespace Gameplay
     {
         public string clipName;
 
-        public VideoClip ufoRecord;
+        public Transform ufoHolder;
 
         public bool forged;
 
