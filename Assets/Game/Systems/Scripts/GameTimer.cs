@@ -30,7 +30,6 @@ namespace Systems
             if (currentTime > 0)
             {
 
-                Debug.Log(currentTime);
 
                 currentTime -= Time.deltaTime;
             

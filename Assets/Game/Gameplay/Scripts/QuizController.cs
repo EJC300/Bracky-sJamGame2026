@@ -27,7 +27,13 @@ namespace Gameplay
                 }
           
             }
-            Debug.Log($"Correct {correct}");
+       
+        }
+
+        public void SetVideoActive()
+        {
+            Debug.Log(false);
+            ufoDataSelector.SetVideos();
         }
         public void ChooseForgery()
         {

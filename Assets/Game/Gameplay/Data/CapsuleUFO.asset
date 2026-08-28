@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CapsuleUFO
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.UFOData
   clipName: 
-  ufoRecord: {fileID: 0}
+  ufoHolder: {fileID: 6232469275632901263, guid: 8f6ae3f9b0f18234aa2f589e9539946c, type: 3}
   forged: 0
   anomaly: 1
   aircraft: 0
