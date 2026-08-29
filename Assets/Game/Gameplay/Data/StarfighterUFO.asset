@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StarfighterUFO
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.UFOData
   clipName: 
-  ufoRecord: {fileID: 0}
+  ufoHolder: {fileID: 7921394399027348797, guid: 8a2e06db55609cc4fa09cf5bc059af77, type: 3}
   forged: 0
   anomaly: 1
   aircraft: 0

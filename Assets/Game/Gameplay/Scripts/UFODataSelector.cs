@@ -58,12 +58,16 @@ namespace Gameplay
        
         public void ChooseNextUFOData()
         {
-           
-           
-     
+
+
+            if (currentIndex < ufoData.Count - 1)
+            {
             videos[currentIndex].SetActive(false);
-            currentIndex = (currentIndex + 1) % ufoData.Count;
+            currentIndex = (currentIndex + 1);
             videos[currentIndex].SetActive(true);
+           
+               
+            }
         }
 
         public UFOData GetUFOData()
