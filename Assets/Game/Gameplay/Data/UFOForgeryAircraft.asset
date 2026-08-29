@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UFOForgeryAircraft
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.UFOData
   clipName: 
-  ufoRecord: {fileID: 0}
+  ufoHolder: {fileID: 7921394399027348797, guid: 3ceb56fce6a29e64e895fff39dcaa631, type: 3}
   forged: 1
   anomaly: 0
   aircraft: 0
