@@ -4,7 +4,8 @@ namespace Gameplay
 {
     public class UFOMover : MonoBehaviour
     {
-
+        public float resetSeconds;
+        public float rapidAccelSeconds;
         public GameTimer reseTimer = new GameTimer(5f, true);
         public GameTimer rapidAcceleration = new GameTimer(3, false);
         [SerializeField] private float moveSpeed;
@@ -41,7 +42,8 @@ namespace Gameplay
         {
             startPosition = transform.position;
             startRotation = transform.rotation;
-
+            reseTimer = new GameTimer(resetSeconds, true);
+            rapidAcceleration = new GameTimer(rapidAccelSeconds, false);
             startScale = transform.localScale;
 
         }

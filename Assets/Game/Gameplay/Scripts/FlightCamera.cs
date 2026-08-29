@@ -5,7 +5,10 @@ namespace Gameplay
     public class FlightCamera : MonoBehaviour
     {
         //Flight Camera leads the target with a lerp for a classic gimbal style camera on a drone or fighter.
-
+        [SerializeField] private float seconds;
+        
+        [SerializeField] private GameTimer timer;
+        
         [SerializeField] private Camera flightCamera;
         [SerializeField] private float maxZoomOut;
         [SerializeField] private float maxZoomIn;
@@ -26,9 +29,11 @@ namespace Gameplay
         private float currentZoom;
         private void Start()
         {
+            timer = new GameTimer(seconds, true);
             currentZoom = 60;
             zoomOutTimer = new GameTimer(zoomTime, false);
             zoomInTimer = new GameTimer(maxZoomIn, false);
+
         }
 
         void ZoomInOnTarget()
@@ -51,7 +56,11 @@ namespace Gameplay
             }
             else
             {
-                
+
+            }
+            if (timer.CountDown())
+            {
+                currentZoom = 60;
             }
             flightCamera.fieldOfView = currentZoom;
         }
@@ -61,9 +70,10 @@ namespace Gameplay
             currentTargetPosition = target.position;
             ZoomInOnTarget();
             ZoomOutOnTarget();
+          
             targetVelocity = (prevTargetPosition - currentTargetPosition)/Time.deltaTime;
 
-            lead = ((currentTargetPosition + targetVelocity) - transform.position).normalized;
+            lead = ((currentTargetPosition) - transform.position).normalized;
 
             lookToLead = Quaternion.LookRotation(lead);
             transform.rotation = Quaternion.Slerp(transform.rotation,lookToLead, lookSpeed * Time.deltaTime);
