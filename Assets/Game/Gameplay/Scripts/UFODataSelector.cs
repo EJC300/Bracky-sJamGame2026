@@ -4,54 +4,41 @@ namespace Gameplay
 {
     public class UFODataSelector : MonoBehaviour
     {
-        public LayerMask layer;
-        public List<UFOData> ufoData = new List<UFOData>();
+        [SerializeField] LayerMask layer;
+       public List<UFOData> ufoData = new List<UFOData>();
         [SerializeField] List<GameObject> videos = new List<GameObject>();
         private int currentIndex = 0;
         private int previousIndex;
         public bool chosen;
         private void Start()
         {
-            
-         
-            for (int i = 0; i < ufoData.Count; i++)
-            {
-                GameObject obj = GameObject.Instantiate( ufoData[i].ufoHolder.gameObject,transform.position,Quaternion.identity);
-                obj.layer= layer;
-                
-                videos.Add(obj);
-            }
-            for (int j = 0; j < videos.Count; j++)
-            {
-                int childCount = videos[j].transform.childCount;
-                for (int k = 0; k < childCount; k++)
-                {
-                    videos[j].transform.GetChild(k).gameObject.layer = layer;
-                }
-            }
+            InitializeUFOData();
             ShuffleData();
-            for (int j = 1; j < videos.Count; j++)
-            {
-                videos[j].SetActive(false); 
-            }
+         
         
         }
 
         private void Update()
         {
          
-            if (videos[currentIndex].activeInHierarchy)
-            {
-                videos[currentIndex].SetActive(true);
+        }
+        
+     
+        void IntializeVideos(UFOData ufoData)
+        {
+          GameObject obj= Instantiate(ufoData.ufoHolder,transform.position,Quaternion.identity).gameObject;
+          obj.SetActive(false);
+          videos.Add(obj);
+        
 
-            }
-            else if (!videos[currentIndex].activeInHierarchy)
+        }
+        void InitializeUFOData()
+        {
+            for (int i = 0; i < ufoData.Count; i++)
             {
-                videos[currentIndex].SetActive(false);
-
+                IntializeVideos(ufoData[i]);
             }
         }
-
         void ShuffleData()
         {
 
@@ -71,14 +58,12 @@ namespace Gameplay
        
         public void ChooseNextUFOData()
         {
-            if (currentIndex < ufoData.Count-1 && chosen)
-            {
-                previousIndex -= currentIndex;
-                chosen = false;
-                currentIndex++;
-               
-            }
-
+           
+           
+     
+            videos[currentIndex].SetActive(false);
+            currentIndex = (currentIndex + 1) % ufoData.Count;
+            videos[currentIndex].SetActive(true);
         }
 
         public UFOData GetUFOData()

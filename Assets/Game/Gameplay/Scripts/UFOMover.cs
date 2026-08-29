@@ -32,7 +32,10 @@ namespace Gameplay
 
 
 
-
+        private void OnDisable()
+        {
+            Reset();
+        }
 
         private void Start()
         {

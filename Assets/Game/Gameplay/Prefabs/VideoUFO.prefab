@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2440205538912456357}
   - component: {fileID: 4406007085950572306}
   - component: {fileID: 627768518726491121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlightCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ Camera:
   m_GameObject: {fileID: 1511231319138060404}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -73,7 +73,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a457542a3abdba34ba1018a4f07dc2c0, type: 2}
   m_TargetDisplay: 0
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6232469275632901263}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VideoUFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 8471816053904377242}
   - component: {fileID: 4844033379236460536}
   - component: {fileID: 7715692518017084762}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
