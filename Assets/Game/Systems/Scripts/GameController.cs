@@ -27,6 +27,13 @@ namespace System
            
             return currentGameState;
         }
+        public void Restart()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+            }
+        }
         public void QuiteGame()
         {
             Application.Quit();
@@ -48,7 +55,10 @@ namespace System
                 currentGameState = newState;
             }
         }
-
+        private void Update()
+        {
+            Restart();
+        }
         private void Start()
         {
 
