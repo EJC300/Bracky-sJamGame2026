@@ -4,11 +4,12 @@ namespace Gameplay
 {
     public class UFODataSelector : MonoBehaviour
     {
+
         [SerializeField] LayerMask layer;
-       public List<UFOData> ufoData = new List<UFOData>();
+        public List<UFOData> ufoData = new List<UFOData>();
         [SerializeField] List<GameObject> videos = new List<GameObject>();
         private int currentIndex = 0;
-        private int previousIndex;
+
         public bool chosen;
         private void Start()
         {
@@ -74,10 +75,7 @@ namespace Gameplay
         {
             return ufoData[currentIndex];
         }
-        public void SetVideos()
-        {
-            
-        }
+   
 
     }
 }

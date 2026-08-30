@@ -15,5 +15,5 @@ MonoBehaviour:
   clipName: 
   ufoHolder: {fileID: 7921394399027348797, guid: a1f9fe3e96fddce4bafe3d75e5a1d436, type: 3}
   forged: 0
-  anomaly: 0
-  aircraft: 1
+  anomaly: 1
+  aircraft: 0

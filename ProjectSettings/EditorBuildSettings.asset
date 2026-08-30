@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/nightHanger.unity
+    guid: 4e04c5c47fdff8945a0065188a3f71d6
+  - enabled: 1
+    path: Assets/Game/Scenes/Game.unity
+    guid: f1e30be8a8f1b5246a0e7242d953ae8d
+  - enabled: 1
+    path: Assets/Bad.unity
+    guid: 1c178306cf0a12444a79f3ec96e6e556
   m_configObjects: {}

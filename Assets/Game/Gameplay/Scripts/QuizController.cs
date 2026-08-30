@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 namespace Gameplay
 {
@@ -5,13 +6,12 @@ namespace Gameplay
     {
         [SerializeField] private UFODataSelector ufoDataSelector;
 
-       
+        private int videoCount = 0;
 
-        private int score;
 
-        private int correct;
+       public int correct;
+        public int incorrect;
 
- 
 
         private void Update()
         {
@@ -27,34 +27,23 @@ namespace Gameplay
                 }
           
             }
-       
-        }
 
+         
+        }
+        private void Start()
+        {
+            videoCount = ufoDataSelector.ufoData.Count;
+        }
         public void SetVideoActive()
         {
             Debug.Log(false);
-            ufoDataSelector.SetVideos();
+            //ufoDataSelector.SetVideos();
         }
-        public void ChooseForgery()
-        {
-            if (!ufoDataSelector.chosen)
-            {
-                if (ufoDataSelector.GetUFOData().forged == true)
-                {
-                    correct++;
-
-                }
-                else
-                {
-                    correct--;
-                }
-                ufoDataSelector.chosen = true;
-            }
-         
-        }
+      
        
         public void ChooseAircraft()
         {
+           
             if (!ufoDataSelector.chosen)
             {
                 if (ufoDataSelector.GetUFOData().aircraft == true)
@@ -64,14 +53,20 @@ namespace Gameplay
                 }
                 else
                 {
-                    correct--;
+                    incorrect++;
                 }
+                CalculateScore();
                 ufoDataSelector.chosen = true;
+            }
+            if (ufoDataSelector.chosen)
+            {
+                ufoDataSelector.chosen = false;
             }
         }
 
         public void ChooseAnomaly()
         {
+          
             if (!ufoDataSelector.chosen)
             {
                 if (ufoDataSelector.GetUFOData().anomaly == true)
@@ -81,11 +76,30 @@ namespace Gameplay
                 }
                 else
                 {
-                    correct--;
+                    incorrect++;
                 }
-
+                CalculateScore();
                 ufoDataSelector.chosen = true;
             }
+              if (ufoDataSelector.chosen)
+            {
+                ufoDataSelector.chosen = false;
+            }
+        }
+        void CalculateScore()
+        {
+           
+       
+            if(correct > 2)
+            {
+
+                GameController.instance.LoadGoodEnding();
+            }
+            else if (incorrect > 2)
+            {
+                GameController.instance.LoadBadEnding();
+            }
+
         }
     }
 }

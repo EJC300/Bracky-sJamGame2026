@@ -30,7 +30,7 @@ namespace Gameplay
 
             }
 
-            Debug.Log(waypoints.Length);
+        
                 MoveToWaypoint();
             
         }
